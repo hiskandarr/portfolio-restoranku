@@ -22,7 +22,7 @@ class ItemFactory extends Factory
             'category_id' => fake()->numberBetween(1, 2),
             'price' => fake()->randomFloat(1, 1000, 100000),
             'description' => fake()->text(),
-            'img' => fake()->imageUrl(),
+            'img' => 'https://placehold.co/640x480?text='.fake()->name(),
             'is_active' => fake()->boolean(),
         ];
     }

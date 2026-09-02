@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+
             $table->string('order_code')->unique();
-            $table->unsignedBigInteger('user_id');
+
+            $table->foreignId('user_id')->constrained('users');
+
             $table->integer('subtotal');
             $table->integer('tax');
             $table->integer('grand_total');
@@ -25,8 +28,6 @@ return new class extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('item_id');
+
+            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('item_id')->constrained('items');
+
             $table->integer('quantity');
             $table->integer('price');
             $table->integer('tax');
             $table->integer('total_price');
+
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 

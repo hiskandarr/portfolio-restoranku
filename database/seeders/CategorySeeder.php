@@ -13,8 +13,8 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['cat_name' => 'Makanan', 'description' => 'Kategori makanan'],
-            ['cat_name' => 'Minuman', 'description' => 'Kategori minuman'],
+            ['cat_name' => 'Makanan', 'description' => 'Kategori Makanan'],
+            ['cat_name' => 'Minuman', 'description' => 'Kategori Minuman'],
         ];
 
         DB::table('categories')->insert($categories);
